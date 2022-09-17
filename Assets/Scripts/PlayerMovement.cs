@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour
     // [SerializeField] private LayerMask _jumpableGround;
 
     private float _dirX = 0f;
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 14f;
+    private float _dirY = 0f;
+    [SerializeField] private float horizontalMoveSpeed = 5f;
+    [SerializeField] private float verticalMoveSpeed = 3.5f;
+    // [SerializeField] private float jumpForce = 14f;
 
     // private enum MovementState { Idle, Running, Jumping, Falling }
 
@@ -32,47 +34,48 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _dirX = Input.GetAxisRaw("Horizontal");
-        _rb.velocity = new Vector2(_dirX * moveSpeed, _rb.velocity.y);
+        _dirY = Input.GetAxisRaw("Vertical");
+        _rb.velocity = new Vector2(_dirX * horizontalMoveSpeed, _dirY * verticalMoveSpeed);
 
-        if (Input.GetButtonDown("Jump"))// && IsGrounded())
-        {
-            // jumpSoundEffect.Play();
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
-        }
+        // if (Input.GetButtonDown("Jump"))// && IsGrounded())
+        // {
+        //     // jumpSoundEffect.Play();
+        //     _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+        // }
 
-        // UpdateAnimationState();
+        UpdateAnimationState();
     }
 
-    // private void UpdateAnimationState()
-    // {
-    //     MovementState state;
-    //
-    //     if (_dirX > 0f)
-    //     {
-    //         state = MovementState.Running;
-    //         _spriteRenderer.flipX = false;
-    //     }
-    //     else if (_dirX < 0f)
-    //     {
-    //         state = MovementState.Running;
-    //         _spriteRenderer.flipX = true;
-    //     }
-    //     else
-    //     {
-    //         state = MovementState.Idle;
-    //     }
-    //
-    //     if (_rb.velocity.y > .1f)
-    //     {
-    //         state = MovementState.Jumping;
-    //     }
-    //     else if (_rb.velocity.y < -.1f)
-    //     {
-    //         state = MovementState.Falling;
-    //     }
-    //
-    //     _anim.SetInteger("state", (int)state);
-    // }
+    private void UpdateAnimationState()
+    {
+        // MovementState state;
+    
+        if (_dirX > 0f)
+        {
+            // state = MovementState.Running;
+            _spriteRenderer.flipX = false;
+        }
+        else if (_dirX < 0f)
+        {
+            // state = MovementState.Running;
+            _spriteRenderer.flipX = true;
+        }
+        // else
+        // {
+        //     state = MovementState.Idle;
+        // }
+    
+        // if (_rb.velocity.y > .1f)
+        // {
+        //     state = MovementState.Jumping;
+        // }
+        // else if (_rb.velocity.y < -.1f)
+        // {
+        //     state = MovementState.Falling;
+        // }
+        //
+        // _anim.SetInteger("state", (int)state);
+    }
 
     // private bool IsGrounded()
     // {
