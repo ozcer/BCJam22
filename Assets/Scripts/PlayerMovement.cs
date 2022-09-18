@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private SpriteRenderer _spriteRenderer;
-    private Animator _anim;
+    public Animator _anim;
 
     // [SerializeField] private LayerMask _jumpableGround;
 
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        // _anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         //     // jumpSoundEffect.Play();
         //     _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
         // }
-
+        _anim.SetFloat("speed", _rb.velocity.magnitude);
         UpdateAnimationState();
     }
 

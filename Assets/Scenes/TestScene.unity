@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &638456356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4420388100532972370, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
+  m_PrefabInstance: {fileID: 1263805279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237388899
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +223,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4420388100532972381, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
+      propertyPath: verticalMoveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420388100532972381, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
+      propertyPath: horizontalMoveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4420388100532972383, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -269,6 +282,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4420388100532972383, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
   m_PrefabInstance: {fileID: 1263805279}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1710123836
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638456356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b1ca3b5359ec0044b3728cd1c609ce9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1882704402
 PrefabInstance:
   m_ObjectHideFlags: 0
