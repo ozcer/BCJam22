@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private AudioSource jumpSoundEffect;
 
+    private bool _dashing = false;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -36,13 +38,22 @@ public class PlayerMovement : MonoBehaviour
     {
         _dirX = Input.GetAxisRaw("Horizontal");
         _dirY = Input.GetAxisRaw("Vertical");
-        _rb.velocity = new Vector2(_dirX * horizontalMoveSpeed, _dirY * verticalMoveSpeed);
 
-        // if (Input.GetButtonDown("Jump"))// && IsGrounded())
-        // {
-        //     // jumpSoundEffect.Play();
-        //     _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
-        // }
+        if (!_dashing)
+        {
+            _rb.velocity = new Vector2(_dirX * horizontalMoveSpeed, _dirY * verticalMoveSpeed);
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            if (CanDash())
+            {
+                Debug.Log("dash start");
+
+                StartCoroutine(Dash(_dirX, _dirY));
+            }
+        }
+
         _anim.SetFloat("speed", _rb.velocity.magnitude);
         UpdateAnimationState();
     }
@@ -81,6 +92,37 @@ public class PlayerMovement : MonoBehaviour
         // }
         //
         // _anim.SetInteger("state", (int)state);
+    }
+
+    private bool CanDash()
+    {
+        return (_dirX != 0 || _dirY != 0) && !_dashing;
+    }
+
+    private IEnumerator Dash(float x, float y)
+    {
+        if (_dashing)
+        {
+            yield return null;
+        }
+        else
+        {
+            _dashing = true;
+
+            _rb.velocity = Vector2.zero;
+            _rb.velocity = new Vector2(x * horizontalMoveSpeed * 10, y * verticalMoveSpeed * 10);
+
+            for (int i = 0; i < 5; i++)
+            {
+                yield return new WaitForSeconds(0.05f);
+
+                _rb.velocity *= 0.5f;
+            }
+
+            _rb.velocity = Vector2.zero;
+
+            _dashing = false;
+        }
     }
 
     // private bool IsGrounded()

@@ -35,7 +35,7 @@ public class Throwing : MonoBehaviour
             }
         }
         
-        if (Input.GetMouseButtonDown(0)) ThrowEnemy();
+        if (Input.GetMouseButtonDown(1)) ThrowEnemy();
     }
 
     private void ThrowEnemy()
