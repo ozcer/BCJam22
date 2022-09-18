@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876a43bd84055354f9eed2bae1d373fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _anim: {fileID: 0}
   horizontalMoveSpeed: 5
   verticalMoveSpeed: 3.5
   jumpSoundEffect: {fileID: 0}
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.28, y: 2.18}
+    oldSize: {x: 0.890625, y: 0.8515625}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4098844286842562992, guid: 4381384088ff8f24fa5c8ec849708a55, type: 3}
   hand: {fileID: 4420388100535657435}
+  elementMarkerList: []
 --- !u!1 &4420388100535657434
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,11 +314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b56d1356a40340b5ac3f9aaf72487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4420388100532972383}
+  element: 0
+  explosionPrefab: {fileID: 0}
   horizontalMoveSpeed: 5
   verticalMoveSpeed: 5
   horizontalAttackRange: 3
   verticalAttackRange: 3
+  _playerDetector: {fileID: 0}
   grabbed: 1
   isInAttackRange: 0
 --- !u!95 &4420388101583700519
@@ -356,7 +360,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.28, y: 2.18}
+    oldSize: {x: 0.890625, y: 0.8515625}
     newSize: {x: 2.28, y: 2.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
