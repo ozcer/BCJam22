@@ -7,16 +7,27 @@ public class Throwing : MonoBehaviour
     private List<EnemyController> grabbedEnemies;
     [SerializeField] private ElementalProjectile projectile;
     [SerializeField] private Transform hand;
+    [SerializeField] private List<SpriteRenderer> elementMarkerList;
 
     // Update is called once per frame
     void Update()
     {
+        grabbedEnemies = new List<EnemyController>(hand.GetComponentsInChildren<EnemyController>());
+
+        foreach (SpriteRenderer sr in elementMarkerList)
+        {
+            sr.enabled = false;
+        }
+        for (int i = 0; i < grabbedEnemies.Count; i++)
+        {
+            elementMarkerList[i].enabled = true;
+        }
+        
         if (Input.GetMouseButtonDown(0)) ThrowEnemy();
     }
 
     private void ThrowEnemy()
     {
-        GetGrabbedEnemies();
 
         if (grabbedEnemies.Count > 0)
         {
@@ -33,11 +44,5 @@ public class Throwing : MonoBehaviour
                 elementalProjectile.movingRight = false;
             }
         }
-    }
-
-    private void GetGrabbedEnemies()
-    {
-        grabbedEnemies = new List<EnemyController>(hand.GetComponentsInChildren<EnemyController>());
-        Debug.Log("Grabbed Enemies = " + grabbedEnemies.Count);
     }
 }
