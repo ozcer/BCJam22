@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     private Collider2D collider;
     private SpriteRenderer sr;
+    public Shadow shadow;
     public Element element;
 
     [SerializeField] private GameObject explosionPrefab;
@@ -52,9 +53,15 @@ public class EnemyController : MonoBehaviour
         // SetElementSprite();
     }
 
-    private void Update() {
+    private void Update()
+    {
+        shadow.gameObject.SetActive(!grabbed);
+        
         if (!grabbed) {
-            transform.localScale = new Vector3(facingRight ? scale.x : -scale.x, scale.y, 2);
+            transform.localScale = new Vector3(facingRight ? 
+                Mathf.Abs(transform.localScale.x) : 
+                -Mathf.Abs(transform.localScale.x), 
+                transform.localScale.y, 1);
         }
         
         // lower sprites on the screen should overlap higher sprites
