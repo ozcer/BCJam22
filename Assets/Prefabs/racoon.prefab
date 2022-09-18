@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b56d1356a40340b5ac3f9aaf72487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
   target: {fileID: 0}
   horizontalMoveSpeed: 1
   verticalMoveSpeed: 1

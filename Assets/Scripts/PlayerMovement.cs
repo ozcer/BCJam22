@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -55,13 +56,13 @@ public class PlayerMovement : MonoBehaviour
         {
             // state = MovementState.Running;
             // _spriteRenderer.flipX = false;
-            transformLocalScale.x = 1;
+            transformLocalScale.x = Mathf.Abs(transformLocalScale.x);
         }
         else if (_dirX < 0f)
         {
             // state = MovementState.Running;
             // _spriteRenderer.flipX = true;
-            transformLocalScale.x = -1;
+            transformLocalScale.x = -Mathf.Abs(transformLocalScale.x);
         }
         transform.localScale = transformLocalScale;
 
