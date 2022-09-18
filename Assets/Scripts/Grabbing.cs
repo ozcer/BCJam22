@@ -18,8 +18,6 @@ public class Grabbing : MonoBehaviour
                 victim.GetComponent<EnemyController>().Grabbed();
                 victim.transform.SetParent(hand);
                 victim.transform.position = hand.position;
-                victim.transform.localScale = new Vector2(0.25f, 0.25f);
-                victim.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 90));
             }
         }
     }

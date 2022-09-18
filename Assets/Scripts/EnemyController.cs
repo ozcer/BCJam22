@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
@@ -90,6 +91,9 @@ public class EnemyController : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         collider.enabled = false;
         rb.simulated = false;
+        
+        transform.localScale = new Vector2(0.25f, 0.25f);
+        transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 90));
     }
 
     public void StopMovement()
