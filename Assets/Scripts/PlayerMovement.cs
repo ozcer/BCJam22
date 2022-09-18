@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
         // }
         _anim.SetFloat("speed", _rb.velocity.magnitude);
         UpdateAnimationState();
+        
+        _spriteRenderer.sortingOrder = (int) (-transform.position.y * 10);
     }
 
     private void UpdateAnimationState()

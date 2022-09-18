@@ -56,6 +56,9 @@ public class EnemyController : MonoBehaviour
         if (!grabbed) {
             transform.localScale = new Vector3(facingRight ? scale.x : -scale.x, scale.y, 1);
         }
+        
+        // lower sprites on the screen should overlap higher sprites
+        sr.sortingOrder = (int) (-transform.position.y * 10);
     }
 
     private void SetElementSprite() {
