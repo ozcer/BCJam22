@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3809437931500563879}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: -7.5498333, y: -2.2084718, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b043f853778f5bb4aaef171bb41116e7, type: 3}
-  m_Color: {r: 1, g: 0.3879471, b: 0, a: 1}
+  m_Sprite: {fileID: 428180688, guid: 248018a59c13ec2408d23dea41a6287c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,14 +104,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.890625, y: 0.8515625}
+    oldSize: {x: 0.59, y: 0.45}
     newSize: {x: 2.28, y: 2.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.4, y: 0.4}
   m_EdgeRadius: 0
 --- !u!50 &4272550872868932731
 Rigidbody2D:
@@ -149,7 +149,11 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
   firecoonPrefab: {fileID: 7390529098159489484, guid: 1b37d6de1f268814a91390db5a5b5760, type: 3}
   icecoonPrefab: {fileID: 7390529098159489484, guid: 6cefbe97e3a47f245916f828cba3b996, type: 3}
+  grasscoonPrefab: {fileID: 7390529098159489484, guid: 48343f88c3f0426499013a4a2b9e1f0c, type: 3}
   lifetime: 1
   direction: {x: 0, y: 0}
   speed: 18
+  fireSprite: {fileID: 823149113, guid: 5f9d088c01fe5db4fb340c77ad412c18, type: 3}
+  waterSprite: {fileID: 428180688, guid: 248018a59c13ec2408d23dea41a6287c, type: 3}
+  earthSprite: {fileID: 835713352, guid: 68fd8da06f648ed4f8b3b8c39583faf1, type: 3}
   element: 0

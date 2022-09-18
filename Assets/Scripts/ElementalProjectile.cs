@@ -8,9 +8,13 @@ public class ElementalProjectile : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject firecoonPrefab;
     public GameObject icecoonPrefab;
+    public GameObject grasscoonPrefab;
     public float lifetime = 1f;
     public Vector2 direction;
     [SerializeField] public float speed = 6f;
+    [SerializeField] private Sprite fireSprite;
+    [SerializeField] private Sprite waterSprite;
+    [SerializeField] private Sprite earthSprite;
     private BoxCollider2D collider2D;
     private SpriteRenderer sr;
     public Element element;
@@ -26,11 +30,14 @@ public class ElementalProjectile : MonoBehaviour
         // else rb.velocity = new Vector2(-speed, 0);
         rb.velocity = direction * speed;
         rb.AddTorque(100);
-        // SetElementSprite();
+        SetElementSprite();
         StartCoroutine(IgniteFuse(lifetime));
     }
-    
-    
+
+    private void Update()
+    {
+        transform.Rotate (0,0,360*Time.deltaTime);
+    }
 
 
     // every 2 seconds perform the print()
@@ -51,6 +58,9 @@ public class ElementalProjectile : MonoBehaviour
                 break;
             case Element.Water:
                 enemyPrefab = icecoonPrefab;
+                break;
+            case Element.Earth:
+                enemyPrefab = grasscoonPrefab;
                 break;
         }
         EnemyController enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity).GetComponent<EnemyController>();
@@ -81,13 +91,11 @@ public class ElementalProjectile : MonoBehaviour
     private void SetElementSprite() {
         switch (element) {
             case Element.Water:
-                sr.color = Color.blue; break;
+                sr.sprite = waterSprite; break;
             case Element.Fire:
-                sr.color = Color.red; break;
-            case Element.Air:
-                sr.color = Color.white; break;
+                sr.sprite = fireSprite; break;
             case Element.Earth:
-                sr.color = Color.yellow; break;
+                sr.sprite = earthSprite; break;
         }
     }
 

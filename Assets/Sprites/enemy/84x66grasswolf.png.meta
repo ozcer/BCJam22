@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b7d6d2338cad71449f055b87c2ebf51
+guid: 68fd8da06f648ed4f8b3b8c39583faf1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: girlbossidle_0
+      name: 84x66grasswolf_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 67
-        height: 107
+        width: 84
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b470fe50d7a99cd4081f8118afabf033
-      internalID: -928348040
+      spriteID: a71e14c361bf1074a9b4e68beb2fe92f
+      internalID: 835713352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlbossidle_1
+      name: 84x66grasswolf_1
       rect:
         serializedVersion: 2
-        x: 67
+        x: 84
         y: 0
-        width: 67
-        height: 107
+        width: 84
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf2a45cd8cc7d7489f3bebc50abbd2a
-      internalID: 2039492221
+      spriteID: e66fac0cbc7338543814a9a6f51c19a4
+      internalID: -744924371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlbossidle_2
+      name: 84x66grasswolf_2
       rect:
         serializedVersion: 2
-        x: 134
+        x: 168
         y: 0
-        width: 67
-        height: 107
+        width: 84
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3be998170cd29044aba7910dd97dcd4
-      internalID: 1538539020
+      spriteID: 847095a0914cfe64098a03a9ad9c0cdf
+      internalID: -1476655533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: girlbossidle_3
+      name: 84x66grasswolf_3
       rect:
         serializedVersion: 2
-        x: 201
+        x: 252
         y: 0
-        width: 67
-        height: 107
+        width: 84
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a90427d1f50a47549b2f7bf3a7ff0753
-      internalID: 354839978
+      spriteID: a1539fcec3b16b8468ff5338f9dd6a5a
+      internalID: -1909159345
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      girlbossidle_0: -928348040
-      girlbossidle_3: 354839978
-      girlbossidle_2: 1538539020
-      girlbossidle_1: 2039492221
+      84x66grasswolf_1: -744924371
+      84x66grasswolf_3: -1909159345
+      84x66grasswolf_0: 835713352
+      84x66grasswolf_2: -1476655533
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
