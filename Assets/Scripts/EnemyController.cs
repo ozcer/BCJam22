@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update() {
         if (!grabbed) {
-            transform.localScale = new Vector3(facingRight ? scale.x : -scale.x, scale.y, 1);
+            transform.localScale = new Vector3(facingRight ? scale.x : -scale.x, scale.y, 2);
         }
         
         // lower sprites on the screen should overlap higher sprites
