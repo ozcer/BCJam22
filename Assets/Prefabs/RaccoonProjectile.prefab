@@ -147,5 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
+  lifetime: 1
   movingRight: 0
+  direction: {x: 0, y: 0}
   speed: 12

@@ -28,21 +28,20 @@ public class Throwing : MonoBehaviour
 
     private void ThrowEnemy()
     {
-
         if (grabbedEnemies.Count > 0)
         {
             // Element element = grabbedEnemies[0];
             Destroy(hand.GetChild(0).gameObject);
 
             ElementalProjectile elementalProjectile = Instantiate(projectile, hand.position, Quaternion.identity);
-            Vector3 scale = transform.localScale;
-            if (scale.x > 0)
-            {
-                elementalProjectile.movingRight = true;
-            } else if (scale.x < 0)
-            {
-                elementalProjectile.movingRight = false;
-            }
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint( new Vector2(Input.mousePosition.x, Input.mousePosition.y) );
+            Vector2 handPos = hand.position;
+            Vector2 direction = mousePos - handPos;
+            direction.Normalize();
+            Debug.Log(direction);
+            elementalProjectile.direction = direction;
+
         }
     }
 }

@@ -8,6 +8,7 @@ public class ElementalProjectile : MonoBehaviour
     public GameObject explosionPrefab;
     public float lifetime = 1f;
     public bool movingRight;
+    public Vector2 direction;
     [SerializeField] private float speed = 6f;
     private BoxCollider2D collider2D;
 
@@ -17,8 +18,9 @@ public class ElementalProjectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<BoxCollider2D>();
-        if (movingRight) rb.velocity = new Vector2(speed, 0);
-        else rb.velocity = new Vector2(-speed, 0);
+        // if (movingRight) rb.velocity = new Vector2(speed, 0);
+        // else rb.velocity = new Vector2(-speed, 0);
+        rb.velocity = direction * speed;
         
         StartCoroutine(IgniteFuse(lifetime));
     }
