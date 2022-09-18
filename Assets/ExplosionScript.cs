@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class ExplosionScript : MonoBehaviour {
     private CircleCollider2D collider2D;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip explodeSound;
     public Element element;
     void Start() {
         collider2D = GetComponent<CircleCollider2D>();
+        SingleTimeSound soundFX = Instantiate(soundObj, transform.position, Quaternion.identity)
+            .GetComponent<SingleTimeSound>();
+        soundFX.RandomizePitch(0.25f);
+        soundFX.LoadClipAndPlay(explodeSound);
     }
 
     void Update()

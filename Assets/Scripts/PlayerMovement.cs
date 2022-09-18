@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private BoxCollider2D _collider;
     private SpriteRenderer _spriteRenderer;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip dashSound;
     public Animator _anim;
 
     // [SerializeField] private LayerMask _jumpableGround;
@@ -109,6 +111,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            Instantiate(soundObj, transform.position, Quaternion.identity)
+                .GetComponent<SingleTimeSound>()
+                .LoadClipAndPlay(dashSound);
             _dashing = true;
 
             _rb.velocity = Vector2.zero;

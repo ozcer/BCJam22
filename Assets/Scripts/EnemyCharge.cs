@@ -7,6 +7,8 @@ public class EnemyCharge : MonoBehaviour
 {
     private Animator _anim;
     private Rigidbody2D _rb;
+    // [SerializeField] private GameObject soundObj;
+    // [SerializeField] private AudioClip chargeSound;
 
     [SerializeField] private float _chargeTime = 0.5f;
 

@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   element: 0
+  soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
+  deathSound: {fileID: 8300000, guid: c857660df61e82f45817497cffb3527b, type: 3}
   explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
   horizontalMoveSpeed: 1
   verticalMoveSpeed: 0.5
@@ -198,6 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialDashSpeed: 10
   _attackDamage: 5
+  soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
+  attackSound: {fileID: 8300000, guid: 4d53e8604ca83d746b851746eb936267, type: 3}
 --- !u!114 &-8152399769562856243
 MonoBehaviour:
   m_ObjectHideFlags: 0

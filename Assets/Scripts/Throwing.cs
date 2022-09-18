@@ -8,6 +8,8 @@ public class Throwing : MonoBehaviour
     [SerializeField] private ElementalProjectile projectile;
     [SerializeField] private Transform hand;
     [SerializeField] private List<SpriteRenderer> elementMarkerList;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip throwSound;
 
     // Update is called once per frame
     void Update()
@@ -41,6 +43,9 @@ public class Throwing : MonoBehaviour
     private void ThrowEnemy()
     {
         if (grabbedEnemies.Count > 0) {
+            Instantiate(soundObj, transform.position, Quaternion.identity)
+                .GetComponent<SingleTimeSound>()
+                .LoadClipAndPlay(throwSound);
             EnemyController enemy = hand.GetChild(0).GetComponent<EnemyController>();
             Element element = enemy.element;
             Destroy(enemy.gameObject);

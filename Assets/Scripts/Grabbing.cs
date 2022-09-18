@@ -5,6 +5,8 @@ using UnityEngine;
 public class Grabbing : MonoBehaviour
 {
     public float grabRange = 10;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip grabSound;
     public Transform hand;
 
     // Update is called once per frame
@@ -18,6 +20,9 @@ public class Grabbing : MonoBehaviour
                 
                 if (enemy.IsGrabbable())
                 {
+                    Instantiate(soundObj, transform.position, Quaternion.identity)
+                        .GetComponent<SingleTimeSound>()
+                        .LoadClipAndPlay(grabSound);
                     enemy.Grabbed();
                     victim.transform.SetParent(hand);
                     victim.transform.position = hand.position;

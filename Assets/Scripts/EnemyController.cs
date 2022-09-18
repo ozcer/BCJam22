@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     private Collider2D collider;
     private SpriteRenderer sr;
     public Element element;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip deathSound;
 
     [SerializeField] private GameObject explosionPrefab;
     
@@ -119,6 +121,9 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Explode() {
+        Instantiate(soundObj, transform.position, Quaternion.identity)
+            .GetComponent<SingleTimeSound>()
+            .LoadClipAndPlay(deathSound);
         ExplosionScript explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity)
             .GetComponent<ExplosionScript>();
         explosion.element = element;

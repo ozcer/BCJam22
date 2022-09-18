@@ -7,7 +7,12 @@ public class SingleTimeSound : MonoBehaviour {
   private void Awake() {
     _audio = GetComponent<AudioSource>();
 
-    _audio.pitch = Random.Range(0.75f, 1.25f);
+    // _audio.pitch = Random.Range(0.75f, 1.25f);
+  }
+
+  public void RandomizePitch(float delta)
+  {
+    _audio.pitch = Random.Range(1 - delta, 1 + delta);
   }
 
   public void ScaleVolume(float scale) {

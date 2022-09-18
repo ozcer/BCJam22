@@ -11,6 +11,8 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] private float _initialDashSpeed = 10f;
     [SerializeField] private float _attackDamage = 5f;
+    [SerializeField] private GameObject soundObj;
+    [SerializeField] private AudioClip attackSound;
 
     private void Awake()
     {
@@ -21,6 +23,9 @@ public class EnemyAttack : MonoBehaviour
 
     public void AttackBegin()
     {
+        Instantiate(soundObj, transform.position, Quaternion.identity)
+            .GetComponent<SingleTimeSound>()
+            .LoadClipAndPlay(attackSound);
         _collider.isTrigger = true;
 
         _rb.velocity = new Vector3(_initialDashSpeed * -1 * transform.localScale.x, 0, 0);

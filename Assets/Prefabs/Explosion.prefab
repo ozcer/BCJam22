@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61b6d51c61cadc43b0de11e736a008e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
+  explodeSound: {fileID: 8300000, guid: f827b739f8a85d24d8cfd49dcb7ec3eb, type: 3}
   element: 0
 --- !u!58 &8436305702404604808
 CircleCollider2D:
