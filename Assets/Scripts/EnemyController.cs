@@ -127,20 +127,20 @@ public class EnemyController : MonoBehaviour
         Spawner.Get().SpawnRandom();
     }
 
-    public void DiffElementCollision() {
-        EnterBonkedState();
-        
-    }
-
-    public void EnterBonkedState() {
-        animator.SetBool("bonked", true);
-        StartCoroutine(StartBonkTimer(3f));
-    }
-    
-    private IEnumerator StartBonkTimer(float waitTime) {
-        yield return new WaitForSeconds(waitTime);
-        animator.SetBool("bonked", false);
-    }
+    // public void DiffElementCollision() {
+    //     // EnterBonkedState();
+    //     
+    // }
+    //
+    // public void EnterBonkedState() {
+    //     animator.SetBool("bonked", true);
+    //     StartCoroutine(StartBonkTimer(3f));
+    // }
+    //
+    // private IEnumerator StartBonkTimer(float waitTime) {
+    //     yield return new WaitForSeconds(waitTime);
+    //     animator.SetBool("bonked", false);
+    // }
 
     
     private bool DetectPlayer()

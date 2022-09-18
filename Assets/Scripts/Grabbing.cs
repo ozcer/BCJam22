@@ -11,7 +11,7 @@ public class Grabbing : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            if (GetComponent<Throwing>().GetGrabbedCount() >= 5) return;
+            if (GetComponent<Throwing>().GetGrabbedCount() >= 1) return;
             GameObject victim = GetGrabbableEnemy();
             if (victim != null) {
                 EnemyController enemy = victim.GetComponent<EnemyController>();

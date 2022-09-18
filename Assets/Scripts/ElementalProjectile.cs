@@ -6,10 +6,11 @@ using UnityEngine;
 public class ElementalProjectile : MonoBehaviour
 {
     public GameObject explosionPrefab;
-    public GameObject enemyPrefab;
+    public GameObject firecoonPrefab;
+    public GameObject icecoonPrefab;
     public float lifetime = 1f;
     public Vector2 direction;
-    [SerializeField] private float speed = 6f;
+    [SerializeField] public float speed = 6f;
     private BoxCollider2D collider2D;
     private SpriteRenderer sr;
     public Element element;
@@ -24,6 +25,7 @@ public class ElementalProjectile : MonoBehaviour
         // if (movingRight) rb.velocity = new Vector2(speed, 0);
         // else rb.velocity = new Vector2(-speed, 0);
         rb.velocity = direction * speed;
+        rb.AddTorque(100);
         // SetElementSprite();
         StartCoroutine(IgniteFuse(lifetime));
     }
@@ -41,6 +43,16 @@ public class ElementalProjectile : MonoBehaviour
 
     private void RespawnAsEnemy() {
         Debug.Log("RESPAWNING");
+        GameObject enemyPrefab = firecoonPrefab;
+        switch (element)
+        {
+            case Element.Fire:
+                enemyPrefab = firecoonPrefab;
+                break;
+            case Element.Water:
+                enemyPrefab = icecoonPrefab;
+                break;
+        }
         EnemyController enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity).GetComponent<EnemyController>();
         enemy.element = element;
         Destroy(gameObject);
@@ -54,11 +66,13 @@ public class ElementalProjectile : MonoBehaviour
             if (element == enemy.element) {
                 enemy.SameElementCollision();
                 // ExplosionEffect();
+                Destroy(gameObject);
             }
-            else {
-                enemy.DiffElementCollision();
+            else
+            {
+                rb.velocity = -rb.velocity;
             }
-            Destroy(gameObject);
+            
             Debug.Log("COLLISION");
         }
         else if (other.CompareTag("Wall")) RespawnAsEnemy();
