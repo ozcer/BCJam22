@@ -49,17 +49,22 @@ public class PlayerMovement : MonoBehaviour
     private void UpdateAnimationState()
     {
         // MovementState state;
-    
+        var transformLocalScale = transform.localScale;
+
         if (_dirX > 0f)
         {
             // state = MovementState.Running;
-            _spriteRenderer.flipX = false;
+            // _spriteRenderer.flipX = false;
+            transformLocalScale.x = 1;
         }
         else if (_dirX < 0f)
         {
             // state = MovementState.Running;
-            _spriteRenderer.flipX = true;
+            // _spriteRenderer.flipX = true;
+            transformLocalScale.x = -1;
         }
+        transform.localScale = transformLocalScale;
+
         // else
         // {
         //     state = MovementState.Idle;
