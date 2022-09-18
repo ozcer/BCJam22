@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         if(grabbed) Grabbed();
 
         target = GameObject.FindWithTag("Player").transform;
-        SetElementSprite();
+        // SetElementSprite();
     }
 
     private void Update() {
@@ -58,7 +58,17 @@ public class EnemyController : MonoBehaviour
         }
         
         // lower sprites on the screen should overlap higher sprites
-        sr.sortingOrder = (int) (-transform.position.y * 10);
+        if (grabbed)
+        {
+            // worst performance NA
+            sr.sortingOrder = target.GetComponent<SpriteRenderer>().sortingOrder + 1;
+        }
+        else
+        {
+            sr.sortingOrder = (int) (-transform.position.y * 10);
+
+        }
+
     }
 
     private void SetElementSprite() {
@@ -98,13 +108,14 @@ public class EnemyController : MonoBehaviour
     }
 
     public void SameElementCollision() {
-        Debug.Log("SIZED UP");
-        float scaleIncrement = 0.4f;
-        scale += new Vector3(scaleIncrement, scaleIncrement, 0);
-
-        if (Math.Abs(scale.x) > 3f && Math.Abs(scale.x)> 3f) {
-            Explode();
-        }
+        // Debug.Log("SIZED UP");
+        // float scaleIncrement = 0.4f;
+        // scale += new Vector3(scaleIncrement, scaleIncrement, 0);
+        //
+        // if (Math.Abs(scale.x) > 3f && Math.Abs(scale.x)> 3f) {
+        //     Explode();
+        // }
+        Explode();
     }
 
     public void Explode() {
@@ -113,6 +124,7 @@ public class EnemyController : MonoBehaviour
         explosion.element = element;
         explosion.transform.localScale = scale;
         Destroy(gameObject);
+        Spawner.Get().SpawnRandom();
     }
 
     public void DiffElementCollision() {
@@ -150,12 +162,13 @@ public class EnemyController : MonoBehaviour
 
     public void Grabbed()
     {
+        grabbed = true;
         animator.SetBool("grabbed", true);
         rb.bodyType = RigidbodyType2D.Kinematic;
         collider.enabled = false;
         rb.simulated = false;
         
-        transform.localScale = new Vector2(0.25f, 0.25f);
+        // transform.localScale = new Vector2(0.25f, 0.25f);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 90));
     }
 

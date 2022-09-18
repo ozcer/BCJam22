@@ -24,7 +24,7 @@ public class ElementalProjectile : MonoBehaviour
         // if (movingRight) rb.velocity = new Vector2(speed, 0);
         // else rb.velocity = new Vector2(-speed, 0);
         rb.velocity = direction * speed;
-        SetElementSprite();
+        // SetElementSprite();
         StartCoroutine(IgniteFuse(lifetime));
     }
     
