@@ -11,10 +11,14 @@ public class EnemyController : MonoBehaviour
     private Collider2D collider;
     
     [SerializeField] private float horizontalMoveSpeed;
-
     [SerializeField] private float verticalMoveSpeed;
+
     [SerializeField] private float horizontalAttackRange = 2f;
     [SerializeField] private float verticalAttackRange = 0.25f;
+
+    private Vector3 _rangeVector;
+
+    [SerializeField] private Transform _playerDetector;
 
     public bool grabbed = false;
     
@@ -28,12 +32,22 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
+
+        _rangeVector = new Vector3(horizontalAttackRange, verticalAttackRange, 1);
+
         if(grabbed) Grabbed();
     }
 
     public void ChasePlayer()
     {
         Vector2 positionDelta = target.position - transform.position;
+
+        transform.localScale = new Vector3
+        (
+            (positionDelta.x < 0) ? 1 : -1,
+            1,
+            1
+        );
 
         if (positionDelta.x < 0) _dirX = -1;
         else if (positionDelta.x > 0) _dirX = 1;
@@ -43,17 +57,31 @@ public class EnemyController : MonoBehaviour
         else if (positionDelta.y > 0) _dirY = 1;
         else _dirY = 0;
 
-        if (Math.Abs(positionDelta.x) < horizontalAttackRange && Math.Abs(positionDelta.y) < verticalAttackRange)
+        if (DetectPlayer())
         {
-            isInAttackRange = true;
+            animator.SetBool("charging", true);
         }
         else
         {
-            isInAttackRange = false;
+            rb.velocity = new Vector2(_dirX * horizontalMoveSpeed, _dirY * verticalMoveSpeed);
         }
-        
-        rb.velocity = new Vector2(_dirX * horizontalMoveSpeed, _dirY * verticalMoveSpeed);
+    }
 
+    private bool DetectPlayer()
+    {
+        if (_playerDetector != null)
+        {
+            Collider2D[] collidersInRange = Physics2D.OverlapBoxAll(_playerDetector.position, _rangeVector, 0);
+            foreach (Collider2D collider in collidersInRange)
+            {
+                if (collider.CompareTag("Player"))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void Grabbed()
@@ -69,4 +97,17 @@ public class EnemyController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
     
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        if (_playerDetector != null)
+        {
+            Gizmos.DrawWireCube
+            (
+                _playerDetector.position,
+                new Vector3(horizontalAttackRange, verticalAttackRange, 1)
+            );
+        }
+    }
 }
