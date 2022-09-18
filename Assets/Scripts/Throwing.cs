@@ -18,9 +18,21 @@ public class Throwing : MonoBehaviour
         {
             sr.enabled = false;
         }
-        for (int i = 0; i < grabbedEnemies.Count; i++)
-        {
+        for (int i = 0; i < grabbedEnemies.Count; i++) {
+            EnemyController enemy = grabbedEnemies[i];
+            
             elementMarkerList[i].enabled = true;
+            SpriteRenderer sr = elementMarkerList[i].GetComponent<SpriteRenderer>();
+            switch (enemy.element) {
+                case Element.Water:
+                    sr.color = Color.blue; break;
+                case Element.Fire:
+                    sr.color = Color.red; break;
+                case Element.Air:
+                    sr.color = Color.white; break;
+                case Element.Earth:
+                    sr.color = Color.yellow; break;
+            }
         }
         
         if (Input.GetMouseButtonDown(0)) ThrowEnemy();
@@ -28,10 +40,10 @@ public class Throwing : MonoBehaviour
 
     private void ThrowEnemy()
     {
-        if (grabbedEnemies.Count > 0)
-        {
-            // Element element = grabbedEnemies[0];
-            Destroy(hand.GetChild(0).gameObject);
+        if (grabbedEnemies.Count > 0) {
+            EnemyController enemy = hand.GetChild(0).GetComponent<EnemyController>();
+            Element element = enemy.element;
+            Destroy(enemy.gameObject);
 
             ElementalProjectile elementalProjectile = Instantiate(projectile, hand.position, Quaternion.identity);
 
@@ -39,9 +51,12 @@ public class Throwing : MonoBehaviour
             Vector2 handPos = hand.position;
             Vector2 direction = mousePos - handPos;
             direction.Normalize();
-            Debug.Log(direction);
             elementalProjectile.direction = direction;
-
+            elementalProjectile.element = element;
         }
+    }
+
+    public int GetGrabbedCount() {
+        return grabbedEnemies.Count;
     }
 }

@@ -20,7 +20,7 @@ public class EnemyChaseFSM : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("canAttack");
-        script.StopMovement();
+        // script.StopMovement();
     }
     
 }

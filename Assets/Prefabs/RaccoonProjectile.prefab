@@ -104,14 +104,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.28, y: 2.18}
+    oldSize: {x: 0.890625, y: 0.8515625}
     newSize: {x: 2.28, y: 2.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.28, y: 2.18}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &4272550872868932731
 Rigidbody2D:
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
+  enemyPrefab: {fileID: 7390529098159489484, guid: 6cefbe97e3a47f245916f828cba3b996, type: 3}
   lifetime: 1
-  movingRight: 0
   direction: {x: 0, y: 0}
   speed: 12
+  element: 0
