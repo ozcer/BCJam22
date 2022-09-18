@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer sr;
     public Shadow shadow;
     public Element element;
+    
     [SerializeField] private GameObject soundObj;
     [SerializeField] private AudioClip deathSound;
 
@@ -128,6 +129,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Explode() {
+        Score.Get().AddScore();
         Instantiate(soundObj, transform.position, Quaternion.identity)
             .GetComponent<SingleTimeSound>()
             .LoadClipAndPlay(deathSound);
@@ -136,6 +138,7 @@ public class EnemyController : MonoBehaviour
         explosion.element = element;
         explosion.transform.localScale = scale;
         Destroy(gameObject);
+        Spawner.Get().SpawnRandom();
         Spawner.Get().SpawnRandom();
     }
 

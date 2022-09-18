@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Spawner : MonoBehaviour
 {
     public List<GameObject> racoonPrefabs;
-    public Bounds spawnArea;
+    public List<Collider2D> colliders;
     
     #region singleton
     static Spawner _instance;
@@ -23,17 +23,13 @@ public class Spawner : MonoBehaviour
     }
     #endregion
 
-    
-    private void Start()
-    {
-        spawnArea = GetComponent<Collider2D>().bounds;
-    }
-
 
     public void SpawnRandom()
     {
         GameObject chosen = racoonPrefabs[Random.Range(0, racoonPrefabs.Count)];
-        Vector2 randomPoint = RandomPointInBounds(spawnArea);
+        
+        Collider2D randomCollider = colliders[Random.Range(0, colliders.Count)];
+        Vector2 randomPoint = RandomPointInBounds(randomCollider.bounds);
         GameObject spawnedRacoon = Instantiate(chosen,randomPoint, quaternion.identity);
     }
     
