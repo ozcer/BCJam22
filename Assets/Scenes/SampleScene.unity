@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
-  dashSound: {fileID: 8300000, guid: c857660df61e82f45817497cffb3527b, type: 3}
+  dashSound: {fileID: 8300000, guid: 485a1da146bbab647924bafc3bb6e3ec, type: 3}
   _anim: {fileID: 0}
   horizontalMoveSpeed: 5
   verticalMoveSpeed: 3.5
@@ -1439,7 +1439,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1785645209, guid: df4bfacdd7590f5449ec00b0f28dcc1f, type: 3}
+  m_Sprite: {fileID: -928348040, guid: 0b7d6d2338cad71449f055b87c2ebf51, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grabRange: 1.5
   soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
-  grabSound: {fileID: 8300000, guid: c857660df61e82f45817497cffb3527b, type: 3}
+  grabSound: {fileID: 8300000, guid: 001ac3874ef607249a36e3c67d909071, type: 3}
   hand: {fileID: 2081613791}
 --- !u!114 &2088365918
 MonoBehaviour:
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   - {fileID: 1333163184}
   - {fileID: 1326406564}
   soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
-  throwSound: {fileID: 8300000, guid: c857660df61e82f45817497cffb3527b, type: 3}
+  throwSound: {fileID: 8300000, guid: d881998c0907a714c8a8db9a9e21ac77, type: 3}
 --- !u!95 &2088365919
 Animator:
   serializedVersion: 4

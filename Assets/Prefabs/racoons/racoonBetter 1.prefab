@@ -138,7 +138,7 @@ MonoBehaviour:
   shadow: {fileID: 5415361279906528000}
   element: 0
   soundObj: {fileID: 9027917589864731480, guid: 79ee22df41cb3654e81bebf73b9b0b3f, type: 3}
-  deathSound: {fileID: 8300000, guid: c857660df61e82f45817497cffb3527b, type: 3}
+  deathSound: {fileID: 8300000, guid: a9c881e3520a51041adeb4a6c4096773, type: 3}
   explosionPrefab: {fileID: 5003303582679992727, guid: ebfce8187b08fc24481f8ace6d345984, type: 3}
   horizontalMoveSpeed: 1
   verticalMoveSpeed: 0.5
