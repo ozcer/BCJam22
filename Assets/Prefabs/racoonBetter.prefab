@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7390529098159489484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.93, y: 1.62, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6b56d1356a40340b5ac3f9aaf72487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4420388100532972383, guid: 270097659ecb096428df557a5ccec6b9, type: 3}
-  horizontalMoveSpeed: 5
-  verticalMoveSpeed: 5
-  horizontalAttackRange: 3
-  verticalAttackRange: 3
+  horizontalMoveSpeed: 1.5
+  verticalMoveSpeed: 1.5
+  horizontalAttackRange: 1.5
+  verticalAttackRange: 1.5
   grabbed: 0
   isInAttackRange: 0
 --- !u!50 &7390529098159489486
@@ -127,7 +126,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &7390529098159489482
 Animator:
   serializedVersion: 4

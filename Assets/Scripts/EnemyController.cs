@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private Transform target; 
+    private Transform target; 
     private Rigidbody2D rb;
     private Animator animator;
     private Collider2D collider;
@@ -30,12 +30,16 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         if(grabbed) Grabbed();
+
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     public void ChasePlayer()
     {
         Vector2 positionDelta = target.position - transform.position;
-
+        print($"target.position {target.position}");
+        
+        
         if (positionDelta.x < 0) _dirX = -1;
         else if (positionDelta.x > 0) _dirX = 1;
         else _dirX = 0;

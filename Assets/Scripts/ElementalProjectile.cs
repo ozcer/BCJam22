@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ElementalProjectile : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+    public float lifetime = 1f;
     public bool movingRight;
     [SerializeField] private float speed = 6f;
     private BoxCollider2D collider2D;
@@ -17,12 +19,18 @@ public class ElementalProjectile : MonoBehaviour
         collider2D = GetComponent<BoxCollider2D>();
         if (movingRight) rb.velocity = new Vector2(speed, 0);
         else rb.velocity = new Vector2(-speed, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        StartCoroutine(IgniteFuse(lifetime));
+    }
+    
+    
+
+
+    // every 2 seconds perform the print()
+    private IEnumerator IgniteFuse(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ExplosionEffect();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -38,5 +46,7 @@ public class ElementalProjectile : MonoBehaviour
     private void ExplosionEffect()
     {
         Debug.Log("EXPLOSION");
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
