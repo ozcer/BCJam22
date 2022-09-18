@@ -12,8 +12,9 @@ public class Grabbing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
-            if (GetComponent<Throwing>().GetGrabbedCount() >= 1) return;
+        if (Input.GetMouseButtonDown(0) && !GetComponent<Animator>().GetBool("grab") &&
+            GetComponent<Throwing>().GetGrabbedCount() >= 1) {
+            GetComponent<Animator>().SetBool("grab", true);
             GameObject victim = GetGrabbableEnemy();
             if (victim != null) {
                 EnemyController enemy = victim.GetComponent<EnemyController>();
