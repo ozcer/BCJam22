@@ -38,4 +38,12 @@ public class EnemyCharge : MonoBehaviour
 
         ChargeEnd();
     }
+
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.collider.CompareTag("Player"))
+    //     {
+    //         other.collider.GetComponent<PlayerHealth>().IsHit();
+    //     }
+    // }
 }

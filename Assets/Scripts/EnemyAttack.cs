@@ -26,7 +26,7 @@ public class EnemyAttack : MonoBehaviour
         Instantiate(soundObj, transform.position, Quaternion.identity)
             .GetComponent<SingleTimeSound>()
             .LoadClipAndPlay(attackSound);
-        _collider.isTrigger = true;
+        // _collider.isTrigger = true;
 
         _rb.velocity = new Vector3(_initialDashSpeed * -1 * transform.localScale.x, 0, 0);
 
@@ -35,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void AttackEnd()
     {
-        _collider.isTrigger = false;
+        // _collider.isTrigger = false;
         _rb.bodyType = RigidbodyType2D.Dynamic;
 
         _anim.SetBool("attacking", false);
